@@ -1,5 +1,5 @@
 def main():
-    fizzbuzz()
+    fizzbuzz_if()
 
 def strslice():
     word = "hello"
