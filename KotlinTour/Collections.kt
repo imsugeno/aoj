@@ -1,5 +1,5 @@
 fun main() {
-    ListFuns()
+    Map()
 }
 
 fun List() {
@@ -25,4 +25,39 @@ fun ListFuns() {
 
     shapes.remove("pentagon")
     println(shapes)
+}
+
+fun Set() {
+    val readOnlyFruit = setOf("apple", "banana", "cherry", "cherry")
+    val fruit: MutableSet<String> = mutableSetOf("apple", "banana", "cherry", "cherry")
+
+    println(readOnlyFruit)
+    println("banana" in readOnlyFruit)
+
+    fruit.add("dragonfruit")
+    println(fruit)
+
+    fruit.remove("dragonfruit")
+    println(fruit)
+}
+
+fun Map() {
+    val readOnlyJuiceMenu = mapOf("apple" to 100, "kiwi" to 190, "orange" to 100)
+    println(readOnlyJuiceMenu)
+
+    val juiceMenu: MutableMap<String, Int> = mutableMapOf("apple" to 100, "kiwi" to 190, "orange" to 100)
+    println(juiceMenu)
+    println("The value of apple juice is: ${readOnlyJuiceMenu["apple"]}")
+    println("The value of pineapple juice is: ${readOnlyJuiceMenu["pineapple"]}")
+
+    juiceMenu["coconut"] = 150
+    println(juiceMenu)
+
+    juiceMenu.remove("orange")
+    println(juiceMenu)
+
+    println("This map has ${readOnlyJuiceMenu.count()} key-value pairs")
+    println(readOnlyJuiceMenu.containsKey("kiwi"))
+    println(readOnlyJuiceMenu.keys)
+    println(readOnlyJuiceMenu.values)
 }
