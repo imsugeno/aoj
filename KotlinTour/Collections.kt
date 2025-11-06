@@ -1,5 +1,5 @@
 fun main() {
-    Map()
+    Practice3()
 }
 
 fun List() {
@@ -60,4 +60,24 @@ fun Map() {
     println(readOnlyJuiceMenu.containsKey("kiwi"))
     println(readOnlyJuiceMenu.keys)
     println(readOnlyJuiceMenu.values)
+}
+
+fun Practice1() {
+    val greenNumbers = listOf(1, 4, 23)
+    val redNumbers = listOf(17, 2)
+
+    println(greenNumbers.count() + redNumbers.count())
+}
+
+fun Practice2() {
+    val SUPPORTED = setOf("HTTP", "HTTPS", "FTP")
+    val requested = "smtp"
+    val isSupported = SUPPORTED.contains(requested.uppercase())// Write your code here 
+    println("Support for $requested: $isSupported")
+}
+
+fun Practice3() {
+    val number2word:Map<Int, String> = mapOf(1 to "one", 2 to "two", 3 to "three")// Write your code here
+    val n:Int = 2
+    println("$n is spelt as '${number2word[n]}'")
 }
