@@ -1,7 +1,7 @@
 import kotlin.random.Random
 
 fun main() {
-    loopPractice1_2()
+    loopPractice3()
 }
 
 fun If() {
@@ -117,3 +117,22 @@ fun loopPractice1_2() {
     println("There are $pizzaSlices slices of pizza. Hooray! We have a whole pizza! :D")
 }
 
+fun loopPractice2() {
+    for (num in 1..100) {
+        when {
+            num%15 == 0 -> println("$num fizzbuzz")
+            num%3 == 0 -> println("$num fizz")
+            num%5 == 0 -> println("$num buzz")
+            else -> println(num)
+        }
+    }
+}
+
+fun loopPractice3() {
+    val words = listOf("dinosaur", "limousine", "magazine", "language")
+    for (word in words) {
+        if (word.startsWith("l")) {
+            println(word)
+        }
+    }
+}
