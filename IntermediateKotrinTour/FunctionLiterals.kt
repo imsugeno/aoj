@@ -1,0 +1,58 @@
+/* practice1
+fun fetchData(callback: StringBuilder.() -> Unit) {
+    val builder = StringBuilder("Data received")
+    builder.callback()
+}
+
+fun main() {
+    fetchData {
+        append(" - Processed")
+        println(this.toString())
+    }
+}
+*/
+
+/* practice2
+class Button {
+    fun onEvent(action: ButtonEvent.() -> Unit) {
+        // Simulate a double-click event (not a right-click)
+        val event = ButtonEvent(isRightClick = false, amount = 2, position = Position(100, 200))
+        event.action() // Trigger the event callback
+    }
+}
+
+data class ButtonEvent(
+    val isRightClick: Boolean,
+    val amount: Int,
+    val position: Position
+)
+
+data class Position(
+    val x: Int,
+    val y: Int
+)
+
+fun main() {
+    val button = Button()
+
+    button.onEvent {
+        // Write your code here
+        // Double click!
+        if (!isRightClick && amount == 2) {println("Double click!")}
+    }
+}
+*/
+
+fun List<Int>.incremented(): List<Int> {
+    val originalList = this
+    return buildList {
+        addAll(originalList.map{it + 1}) 
+    }
+}
+
+fun main() {
+    val originalList = listOf(1, 2, 3)
+    val newList = originalList.incremented()
+    println(newList)
+    // [2, 3, 4]
+}
