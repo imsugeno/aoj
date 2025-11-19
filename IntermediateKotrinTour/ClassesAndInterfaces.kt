@@ -1,3 +1,4 @@
+/* exercise 1
 abstract class SmartDevice(val name: String) {
     abstract fun turnOn()
     abstract fun turnOff()
@@ -48,4 +49,94 @@ fun main() {
     // Bedroom Thermostat thermostat set to 5°C.
     bedroomThermostat.turnOff()
     // Bedroom Thermostat thermostat is now off.
+}
+*/
+
+/* exercise2
+interface Media {
+    val title: String
+    fun play()
+}
+
+class Audio(override val title: String, val composer: String) : Media {
+    override fun play() {
+        println("Playing audio: $title, composed by $composer")
+    }
+}
+
+fun main() {
+    val audio = Audio("Symphony No. 5", "Beethoven")
+    audio.play()
+   // Playing audio: Symphony No. 5, composed by Beethoven
+}
+*/
+
+/* excersice3
+interface Refundable {
+    fun refund(amount: Double)
+}
+
+abstract class PaymentMethod(val name: String) {
+    fun authorize(amount: Double) {
+        println("Authorizing payment of $$amount")
+    }
+    
+    abstract fun processPayment(amount: Double)
+}
+
+class CreditCard(name: String) : Refundable, PaymentMethod(name) {
+    override fun refund(amount: Double) {
+        println("Refunding $amount to the credit card.")
+    }
+
+    override fun processPayment(amount: Double) {
+        println("Processing credit card payment of $amount.")
+    }
+} // Write your code here
+
+fun main() {
+    val visa = CreditCard("Visa")
+    
+    visa.authorize(100.0)
+    // Authorizing payment of $100.0.
+    visa.processPayment(100.0)
+    // Processing credit card payment of $100.0.
+    visa.refund(50.0)
+    // Refunding $50.0 to the credit card.
+}
+*/
+
+interface Messenger {
+    fun sendMessage(message: String)
+    fun receiveMessage(): String
+}
+
+class BasicMessenger : Messenger {
+    override fun sendMessage(message: String) {
+        println("Sending message: $message")
+    }
+
+    override fun receiveMessage(): String {
+        return "You've got a new message!"
+    }
+}
+
+class SmartMessenger(val basicMessenger: BasicMessenger) : Messenger by basicMessenger {
+    override fun sendMessage(message: String) {
+        println("Sending a smart message: $message")
+        basicMessenger.sendMessage("[smart] $message")
+    }
+}
+
+fun main() {
+    val basicMessenger = BasicMessenger()
+    val smartMessenger = SmartMessenger(basicMessenger)
+    
+    basicMessenger.sendMessage("Hello!")
+    // Sending message: Hello!
+    println(smartMessenger.receiveMessage())
+    // You've got a new message!
+    smartMessenger.sendMessage("Hello from SmartMessenger!")
+    // Sending a smart message: Hello from SmartMessenger!
+    // Sending message: [smart] Hello from SmartMessenger!
 }
